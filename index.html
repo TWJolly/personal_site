@@ -2,179 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Toby Jolly — Portfolio</title>
+  <title>Toby Jolly — Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Events, neighbourhood and writing projects by Toby Jolly.">
-  <!-- Google Font -->
+  <meta name="description" content="Gatherings, neighbourhoods and writing projects by Toby Jolly.">
+  <!-- Fonts & minimal reset -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Toby Jolly">
-  <meta property="og:description" content="Events, neighbourhood and writing projects by Toby Jolly.">
-  <meta property="og:image" content="img/Screenshot%202025-01-20%20173910.png">
-  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root {
-      --bg-1: #ffecd2;
-      --bg-2: #fcb69f;
-      --accent-1: #ff6363;
-      --accent-2: #1e90ff;
+      --bg-1: #ffffff;
+      --bg-2: #fafafa;
+      --accent-1: #ff6363;   /* coral */
+      --accent-2: #1e90ff;   /* dodger */
+      --accent-3: #ffbf00;   /* sunflower */
       --text: #222;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text);
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
-      background-size: 400% 400%;
-      animation: bgShift 20s ease-in-out infinite alternate;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-    @keyframes bgShift {
-      0%   { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-    .card {
-      background: #fff;
-      border-radius: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
-      width: 100%;
-      overflow: hidden;
-      animation: pop 0.8s cubic-bezier(.25,.8,.25,1) forwards;
-    }
-    @keyframes pop {
-      0%   { transform: scale(.95); opacity: 0; }
-      100% { transform: scale(1);   opacity: 1; }
-    }
-    .header {
-      text-align: center;
-      padding: 3rem 2rem 2rem;
-    }
-    .header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid var(--accent-1);
-      animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-8px); }
-    }
-    h1 { font-size: 2.5rem; margin-top: 1rem; }
-    p.tagline { color: #555; margin-top: .5rem; }
-    .social {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .social a {
-      color: var(--accent-2);
-      transition: transform .2s;
-    }
-    .social a:hover { transform: scale(1.2); }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--text);line-height:1.6;min-height:100vh;}
+    a{color:var(--accent-2);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    /* Nav */
+    header{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:auto;}
+    nav ul{display:flex;gap:1.5rem;list-style:none;}
+    nav a{font-weight:600;}
 
-    .projects {
-      padding: 2rem;
-      background: linear-gradient(to right, #f7f8f8, #fdfdfd);
-    }
-    .projects h2 { font-size: 1.8rem; margin-bottom: 1rem; text-align: center; }
-    .projects ul {
-      list-style: none;
-      display: grid;
-      gap: 1rem;
-    }
-    .projects li {
-      background: #fafafa;
-      padding: 1rem 1.5rem;
-      border-left: 5px solid var(--accent-1);
-      border-radius: .75rem;
-    }
-    a.project-link {
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .contact { padding: 2rem 2rem 3rem; }
-    .contact h2 { font-size: 1.8rem; margin-bottom: 1rem; text-align: center; }
-    form {
-      display: grid;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    input, textarea {
-      padding: .75rem 1rem;
-      border: 1px solid #ddd;
-      border-radius: .5rem;
-      font: inherit;
-    }
-    button {
-      background: var(--accent-2);
-      color: #fff;
-      border: none;
-      padding: .75rem 1.5rem;
-      border-radius: .5rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background .2s ease-out;
-    }
-    button:hover { background: #0d75d8; }
-    small { display: block; text-align: center; color: #777; margin-top: .5rem; }
+    /* Hero */
+    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:4rem 2rem;gap:1.5rem;}
+    .hero img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:6px solid var(--accent-1);animation:float 6s ease-in-out infinite;}
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+    .projects{max-width:1100px;margin:4rem auto;padding:0 2rem;}
+    .projects h2{font-size:1.8rem;margin-bottom:1rem;text-align:center;}
+    .projects ul{display:grid;gap:1rem;list-style:none;}
+    .projects li{background:#fff;padding:1rem 1.5rem;border-left:5px solid var(--accent-1);border-radius:.75rem;}
+    
+    /* Contact section using Airtable embed */
+    .contact{background:#fff;padding:4rem 2rem;}
+    .contact h2{text-align:center;margin-bottom:1rem;}
+    .airtable-embed{border-radius:.75rem;}
+
+    /* Floating emoji */
+    .emoji{position:fixed;font-size:2.5rem;pointer-events:none;opacity:.6;animation:drift 18s linear infinite;}
+    @keyframes drift{from{transform:translateY(0) rotate(0deg);}to{transform:translateY(-120vh) rotate(360deg);} }
+    .emoji:nth-child(1){left:10%;bottom:-10%;animation-duration:20s;font-size:3rem;}
+    .emoji:nth-child(2){left:70%;bottom:-20%;animation-duration:25s;}
+    .emoji:nth-child(3){left:40%;bottom:-15%;animation-duration:22s;}
   </style>
 </head>
 <body>
-  <main class="card">
-    <!-- Header -->
-    <section class="header">
-      <img src="img/Screenshot%202025-01-20%20173910.png" alt="Toby Jolly headshot">
-      <h1>Toby Jolly</h1>
-      <p class="tagline">Building gatherings, neighbourhoods & words that make people smile.</p>
-      <!-- Social links -->
-      <nav class="social">
-        <a aria-label="GitHub" href="https://github.com/yourhandle" target="_blank" rel="noopener">
-          <!-- GitHub SVG -->
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" role="img" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.799 8.207 11.387.6.111.793-.258.793-.577 0-.285-.012-1.23-.017-2.238-3.338.724-4.042-1.609-4.042-1.609-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.84 1.238 1.84 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.304.761-1.604-2.665-.304-5.466-1.332-5.466-5.931 0-1.311.469-2.382 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.323 3.3 1.23a11.51 11.51 0 013.003-.404 11.51 11.51 0 013.003.404c2.292-1.553 3.297-1.23 3.297-1.23.654 1.653.243 2.873.119 3.176.77.839 1.235 1.91 1.235 3.221 0 4.609-2.804 5.625-5.475 5.921.43.371.814 1.102.814 2.222 0 1.606-.015 2.903-.015 3.297 0 .319.192.694.801.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a aria-label="LinkedIn" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">
-          <!-- LinkedIn SVG -->
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" role="img" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.452 20.452h-3.554v-5.569c0-1.327-.025-3.039-1.853-3.039-1.853 0-2.137 1.445-2.137 2.939v5.669h-3.554V9h3.414v1.561h.049c.477-.901 1.637-1.853 3.37-1.853 3.603 0 4.271 2.372 4.271 5.466v6.278zM5.337 7.433A2.065 2.065 0 013.27 5.37a2.065 2.065 0 012.067-2.063 2.065 2.065 0 012.067 2.063 2.065 2.065 0 01-2.067 2.063zM7.114 20.452H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .802 0 1.787v20.425C0 23.195.792 24 1.771 24h20.451C23.205 24 24 23.195 24 22.212V1.787C24 .802 23.205 0 22.225 0z"/></svg>
-        </a>
-        <a aria-label="Twitter" href="https://twitter.com/yourhandle" target="_blank" rel="noopener">
-          <!-- Twitter SVG -->
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" role="img" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.608 1.794-1.574 2.163-2.724-.951.564-2.005.974-3.127 1.195-.897-.954-2.178-1.55-3.594-1.55-2.723 0-4.928 2.2-4.928 4.917 0 .39.045.765.127 1.124-4.094-.205-7.724-2.172-10.15-5.164-.424.722-.666 1.561-.666 2.475 0 1.71.87 3.216 2.188 4.099-.807-.026-1.566-.248-2.228-.616v.06c0 2.385 1.697 4.374 3.946 4.827-.413.112-.849.171-1.296.171-.314 0-.615-.03-.916-.085.631 1.953 2.445 3.376 4.6 3.416-1.68 1.316-3.809 2.101-6.102 2.101-.39 0-.78-.024-1.17-.067 2.179 1.394 4.768 2.211 7.557 2.211 9.054 0 14.002-7.496 14.002-13.986 0-.209 0-.423-.016-.637A9.936 9.936 0 0024 4.59z"/></svg>
-        </a>
-      </nav>
-    </section>
+  <!-- Decorative floating emoji -->
+  <div class="emoji">✨</div>
+  <div class="emoji">🚀</div>
+  <div class="emoji">🌈</div>
 
-    <!-- Projects -->
-    <section class="projects">
-      <h2>Projects</h2>
+  <!-- Navigation -->
+  <header>
+    <h1><a href="/">Toby&nbsp;Jolly</a></h1>
+    <nav>
       <ul>
-        <li><a class="project-link" href="https://skylarkgatherings.com" target="_blank" rel="noopener">Skylark — events that spark serendipity</a></li>
-        <li><a class="project-link" href="#" target="_blank" rel="noopener">Fractal London — local network of neighbourhood builders</a></li>
-        <li><a class="project-link" href="https://seekingtobejolly.substack.com" target="_blank" rel="noopener">seeking‑to‑be‑jolly — notes & essays</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </section>
+    </nav>
+  </header>
 
-    <!-- Contact -->
-    <section class="contact">
-      <h2>Say hi</h2>
-      <form name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" rows="4" placeholder="Your message" required></textarea>
-        <button type="submit">Send</button>
-        <small>Powered by Netlify Forms</small>
-      </form>
-    </section>
-  </main>
+  <!-- Hero -->
+  <section class="hero">
+    <img src="img/Screenshot%202025-01-20%20173910.png" alt="Toby Jolly headshot">
+    <h2>Building gatherings, neighbourhoods & words that spark joy.</h2>
+    <p>Founder of <strong>Skylark Gatherings</strong>, convener of <strong>Fractal&nbsp;London</strong>, author of the Substack <strong>seeking‑to‑be‑jolly</strong>.</p>
+    <!-- Social links -->
+    <nav class="social" aria-label="social links">
+      <a aria-label="GitHub" href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a>
+      <a aria-label="LinkedIn" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+      <a aria-label="Twitter" href="https://twitter.com/yourhandle" target="_blank" rel="noopener">Twitter</a>
+    </nav>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="https://skylarkgatherings.com" target="_blank" rel="noopener">Skylark — events that spark serendipity</a></li>
+      <li><a href="#" target="_blank" rel="noopener">Fractal London — local network of neighbourhood builders</a></li>
+      <li><a href="https://seekingtobejolly.substack.com" target="_blank" rel="noopener">seeking‑to‑be‑jolly — notes & essays</a></li>
+    </ul>
+  </section>
+
+  <!-- Contact with Airtable embed -->
+  <section id="contact" class="contact">
+    <h2>Say hi</h2>
+    <iframe class="airtable-embed" src="https://airtable.com/embed/appSxGzjHs7uQ3UXh/pagc5RDnhaxcDrT8O/form" frameborder="0" width="100%" height="533"></iframe>
+  </section>
 </body>
 </html>
