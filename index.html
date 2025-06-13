@@ -20,7 +20,7 @@
     a{color:var(--accent-2);text-decoration:none;font-weight:600;} a:hover{text-decoration:underline;}
 
     /* floating emoji */
-    .emoji{position:fixed;font-size:2rem;pointer-events:none;opacity:.55;animation:drift 18s linear infinite;}
+    .emoji{position:fixed;font-size:2rem;pointer-events:none;opacity:.55;animation:drift 18s linear infinite;z-index:0;}
     @keyframes drift{from{transform:translateY(0) rotate(0deg);}to{transform:translateY(-120vh) rotate(360deg);} }
     .emoji:nth-child(1){left:5%;bottom:-8%;animation-duration:24s;}
     .emoji:nth-child(2){left:18%;bottom:-12%;animation-duration:20s;font-size:2.5rem;}
@@ -35,7 +35,7 @@
     .emoji:nth-child(11){left:12%;bottom:-18%;animation-duration:30s;}
 
     /* hero */
-    .hero{max-width:1000px;margin:0 auto;padding:4rem 1.5rem 3rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.2rem;position:relative;}
+    .hero{max-width:1000px;margin:0 auto;padding:4rem 1.5rem 3rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.2rem;position:relative;z-index:1;}
     .hero img{width:clamp(140px,40vw,220px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:6px solid var(--accent-1);animation:float 6s ease-in-out infinite;}
     @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
     .hero h1{font-size:2.2rem;letter-spacing:-0.5px;}
@@ -44,13 +44,13 @@
 
     /* arrow */
     .face-note{display:flex;flex-direction:column;align-items:center;margin-top:.5rem;gap:.25rem;}
-    .face-note svg{width:90px;height:36px;stroke:var(--accent-1);stroke-width:3px;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+    .face-note svg{width:100px;height:40px;stroke:var(--accent-1);stroke-width:3px;fill:none;stroke-linecap:round;stroke-linejoin:round;transform:rotate(-10deg);} /* slight tilt */
     .face-note span{color:var(--accent-1);font-weight:600;font-size:1rem;}
 
     /* tabs */
-    .tabs{max-width:1200px;margin:0 auto 3rem;padding:0 1.5rem;}
+    .tabs{max-width:1200px;margin:0 auto 3rem;padding:0 1.5rem;z-index:1;position:relative;}
     .tabs input{position:absolute;left:-9999px;}
-    .tab-labels{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center;}
+    .tab-labels{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center;margin-bottom:1rem;}
     .tab-labels label{padding:.6rem 1.2rem;background:rgba(255,255,255,.3);backdrop-filter:blur(6px);cursor:pointer;border-radius:.5rem;border:2px solid transparent;transition:background .25s,border-color .25s;}
     .tab-labels label:hover{background:rgba(255,255,255,.5);}    
     #tab-projects:checked ~ .tab-labels label[for="tab-projects"],
@@ -63,7 +63,7 @@
     #tab-contact:checked ~ #contact{display:block;}
 
     /* project grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.6rem;margin-top:2rem;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.6rem;margin-top:1.5rem;}
     .card{position:relative;border-radius:1rem;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.15);transition:transform .3s;cursor:pointer;}
     .card:hover{transform:translateY(-6px);}    
     .card img{width:100%;height:220px;object-fit:cover;transition:transform .35s ease;}
@@ -78,7 +78,8 @@
       .hero{padding:3rem 1rem;}
       .grid{grid-template-columns:1fr;}
       .emoji{font-size:1.3rem;opacity:.4;}
-      iframe.embed{height:80vh;}
+      iframe.embed{height:75vh;}
+      .face-note svg{width:80px;height:30px;}
     }
     @media(min-width:601px) and (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);} }
   </style>
@@ -91,36 +92,15 @@
   <header class="hero">
     <img src="img/Screenshot%202025-01-20%20173910.png" alt="Toby Jolly headshot">
     <div class="face-note">
-      <svg viewBox="0 0 100 40" aria-hidden="true"><path d="M0 20 Q40 0 80 20 Q40 40 0 20"/><polyline points="70,15 80,20 70,25"/></svg>
+      <!-- curved arrow -->
+      <svg viewBox="0 0 120 40" aria-hidden="true">
+        <path d="M5 35 Q60 -10 115 25" />
+        <polyline points="105,18 115,25 105,30" />
+      </svg>
       <span>This is my face</span>
     </div>
     <h1>Toby&nbsp;Jolly</h1>
     <h2>Gatherings, neighbourhoods &amp; words that spark joy.</h2>
     <p>I’m a community‑builder, sax‑player and data‑curious storyteller—currently orchestrating serendipitous events at <strong>Skylark</strong>, weaving local ties through <strong>Fractal London</strong>, and musing on life in my Substack <strong>seeking‑to‑be‑jolly</strong>.</p>
     <nav aria-label="social links" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:0.5rem;">
-      <a aria-label="GitHub" href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a>
-      <a aria-label="LinkedIn" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
-      <a aria-label="Twitter" href="https://twitter.com/yourhandle" target="_blank" rel="noopener">Twitter</a>
-    </nav>
-  </header>
-
-  <!-- TABS -->
-  <section class="tabs">
-    <!-- radio buttons -->
-    <input type="radio" name="tabs" id="tab-projects" checked>
-    <input type="radio" name="tabs" id="tab-timeline">
-    <input type="radio" name="tabs" id="tab-contact">
-
-    <!-- labels -->
-    <div class="tab-labels">
-      <label for="tab-projects">Projects</label>
-      <label for="tab-timeline">Timeline</label>
-      <label for="tab-contact">Contact</label>
-    </div>
-
-    <!-- contents -->
-    <div id="projects" class="tab-content">
-      <div class="grid">
-        <a class="card" href="https://skylarkgatherings.com" target="_blank" rel="noopener">
-          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=60" alt="Skylark event placeholder">
-          <span class="label">Skylark — events that spark serendip
+      <a aria-label="GitHub" href="https://github.com/yourhandle" target="_blank" rel
