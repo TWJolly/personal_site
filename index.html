@@ -2,26 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Toby Jolly — Timeline</title>
+  <title>Toby Jolly — Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gatherings, neighbourhoods and writing projects by Toby Jolly.">
+  <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;font-family:'Poppins',sans-serif;background:#ffffff;display:flex;flex-direction:column;min-height:100vh;}
-    header{padding:1rem 2rem;display:flex;justify-content:center;align-items:center;background:#fafafa;box-shadow:0 2px 4px rgba(0,0,0,.05);} 
-    header h2{font-size:1.5rem;}
-    header a{color:#00b894;text-decoration:none;font-weight:600;}
-    main{flex:1;padding:2rem;display:flex;justify-content:center;align-items:center;}
-    .embed-wrapper{width:100%;max-width:960px;box-shadow:0 4px 20px rgba(0,0,0,.15);border-radius:8px;overflow:hidden;}
+    :root {
+      --bg-from:#e0c3fc; /* lavender */
+      --bg-to:#8ec5fc;   /* sky */
+      --accent-1:#ff926b;/* peach */
+      --accent-2:#00b894;/* teal */
+      --text:#272343;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;background:linear-gradient(180deg,var(--bg-from),var(--bg-to));color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden;}
+    a{color:var(--accent-2);text-decoration:none;font-weight:600;}
+    a:hover{text-decoration:underline;}
+
+    /* Floating emoji */
+    .emoji{position:fixed;font-size:2.4rem;pointer-events:none;opacity:.55;animation:drift 18s linear infinite;}
+    @keyframes drift{from{transform:translateY(0) rotate(0deg);}to{transform:translateY(-120vh) rotate(360deg);} }
+    .emoji:nth-of-type(1){left:5%;bottom:-8%;animation-duration:24s;}
+    .emoji:nth-of-type(2){left:18%;bottom:-12%;animation-duration:20s;font-size:2.8rem;}
+    .emoji:nth-of-type(3){left:30%;bottom:-15%;animation-duration:26s;}
+    .emoji:nth-of-type(4){left:42%;bottom:-10%;animation-duration:22s;font-size:3rem;}
+    .emoji:nth-of-type(5){left:54%;bottom:-18%;animation-duration:25s;}
+    .emoji:nth-of-type(6){left:66%;bottom:-9%;animation-duration:19s;}
+    .emoji:nth-of-type(7){left:76%;bottom:-13%;animation-duration:27s;font-size:3.2rem;}
+    .emoji:nth-of-type(8){left:84%;bottom:-11%;animation-duration:21s;}
+    .emoji:nth-of-type(9){left:92%;bottom:-16%;animation-duration:23s;}
+    .emoji:nth-of-type(10){left:38%;bottom:-20%;animation-duration:28s;}
+    .emoji:nth-of-type(11){left:12%;bottom:-18%;animation-duration:30s;}
+
+    /* Header */
+    header{display:flex;flex-direction:column;align-items:center;padding:1rem 2rem;max-width:1200px;margin:auto;}
+    header h1{font-size:2.2rem;letter-spacing:-0.5px;margin-bottom:.3rem;}
+    nav ul{display:flex;gap:1.5rem;list-style:none;}
+
+    /* Hero */
+    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:4rem 2rem 3rem;gap:1.2rem;}
+    .hero img{width:220px;height:220px;border-radius:50%;object-fit:cover;border:6px solid var(--accent-1);animation:float 6s ease-in-out infinite;}
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+    .hero p.blurb{max-width:650px;font-size:1.05rem;color:#333;}
+
+    /* Projects */
+    .projects{max-width:1200px;margin:3rem auto;padding:0 2rem;}
+    .projects h2{font-size:1.9rem;margin-bottom:1.2rem;text-align:center;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;}
+    .card{position:relative;border-radius:1rem;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.15);transition:transform .3s;}
+    .card:hover{transform:translateY(-6px);}
+    .card img{width:100%;height:220px;object-fit:cover;transition:transform .35s ease;}
+    .card:hover img{transform:scale(1.07);} 
+    .card .label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.55);color:#fff;padding:.8rem 1rem;font-size:1.05rem;backdrop-filter:blur(4px);} 
+
+    /* Contact */
+    .contact{background:#fff;padding:4rem 2rem;}
+    .contact h2{text-align:center;margin-bottom:1rem;font-size:1.8rem;}
+    .airtable-embed{border-radius:.75rem;box-shadow:0 4px 14px rgba(0,0,0,.12);}
   </style>
 </head>
 <body>
+  <!-- Decorative floating emoji -->
+  <div class="emoji">🎷</div>
+  <div class="emoji">🎸</div>
+  <div class="emoji">🧘‍♂️</div>
+  <div class="emoji">💃</div>
+  <div class="emoji">📊</div>
+  <div class="emoji">📅</div>
+  <div class="emoji">🎵</div>
+  <div class="emoji">❤️</div>
+  <div class="emoji">🌀</div>
+  <div class="emoji">💡</div>
+  <div class="emoji">🌱</div>
+
+  <!-- Navigation -->
   <header>
-    <h2><a href="/">&larr; Back to Home</a></h2>
+    <h1>Toby&nbsp;Jolly</h1>
+    <nav>
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
-  <main>
-    <div class="embed-wrapper" style="position: relative; padding-top: 56.25%;">
-      <iframe loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" src="https://www.canva.com/design/DAGqQXzh-eo/IAvdRRDRPjquVuOwFf-nNQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="img/Screenshot%202025-01-20%20173910.png" alt="Toby Jolly headshot">
+    <h2>Gatherings, neighbourhoods & words that spark joy.</h2>
+    <p class="blurb">I’m a community‑builder, sax‑player and data‑curious storyteller—currently orchestrating serendipitous events at <strong>Skylark</strong>, weaving local ties through <strong>Fractal London</strong>, and sharing reflections on my Substack <strong>seeking‑to‑be‑jolly</strong>.</p>
+    <nav class="social" aria-label="social links">
+      <a aria-label="GitHub" href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a>
+      <a aria-label="LinkedIn" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+      <a aria-label="Twitter" href="https://twitter.com/yourhandle" target="_blank" rel="noopener">Twitter</a>
+    </nav>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <a class="card" href="https://skylarkgatherings.com" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=60" alt="Skylark event photo placeholder">
+        <span class="label">Skylark — events that spark serendipity</span>
+      </a>
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=60" alt="Fractal London placeholder image">
+        <span class="label">Fractal London — neighbourhood builders</span>
+      </a>
+      <a class="card" href="https://seekingtobejolly.substack.com" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=60" alt="writing placeholder">
+        <span class="label">seeking‑to‑be‑jolly — essays & notes</span>
+      </a>
     </div>
-  </main>
+  </section>
+
+  <!-- Contact with Airtable embed -->
+  <section id="contact" class="contact">
+    <h2>Say hi</h2>
+    <iframe class="airtable-embed" src="https://airtable.com/embed/appSxGzjHs7uQ3UXh/pagc5RDnhaxcDrT8O/form" frameborder="0" width="100%" height="550"></iframe>
+  </section>
 </body>
 </html>
