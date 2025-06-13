@@ -2,97 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Toby Jolly — Home</title>
+  <title>Toby Jolly — Timeline</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Gatherings, neighbourhoods and writing projects by Toby Jolly.">
-  <!-- Fonts & minimal reset -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-1: #ffffff;
-      --bg-2: #fafafa;
-      --accent-1: #ff6363;   /* coral */
-      --accent-2: #1e90ff;   /* dodger */
-      --accent-3: #ffbf00;   /* sunflower */
-      --text: #222;
-    }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Poppins',sans-serif;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--text);line-height:1.6;min-height:100vh;}
-    a{color:var(--accent-2);text-decoration:none;}
-    a:hover{text-decoration:underline;}
-    /* Nav */
-    header{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:auto;}
-    nav ul{display:flex;gap:1.5rem;list-style:none;}
-    nav a{font-weight:600;}
-
-    /* Hero */
-    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:4rem 2rem;gap:1.5rem;}
-    .hero img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:6px solid var(--accent-1);animation:float 6s ease-in-out infinite;}
-    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-
-    .projects{max-width:1100px;margin:4rem auto;padding:0 2rem;}
-    .projects h2{font-size:1.8rem;margin-bottom:1rem;text-align:center;}
-    .projects ul{display:grid;gap:1rem;list-style:none;}
-    .projects li{background:#fff;padding:1rem 1.5rem;border-left:5px solid var(--accent-1);border-radius:.75rem;}
-    
-    /* Contact section using Airtable embed */
-    .contact{background:#fff;padding:4rem 2rem;}
-    .contact h2{text-align:center;margin-bottom:1rem;}
-    .airtable-embed{border-radius:.75rem;}
-
-    /* Floating emoji */
-    .emoji{position:fixed;font-size:2.5rem;pointer-events:none;opacity:.6;animation:drift 18s linear infinite;}
-    @keyframes drift{from{transform:translateY(0) rotate(0deg);}to{transform:translateY(-120vh) rotate(360deg);} }
-    .emoji:nth-child(1){left:10%;bottom:-10%;animation-duration:20s;font-size:3rem;}
-    .emoji:nth-child(2){left:70%;bottom:-20%;animation-duration:25s;}
-    .emoji:nth-child(3){left:40%;bottom:-15%;animation-duration:22s;}
+    body{margin:0;font-family:'Poppins',sans-serif;background:#ffffff;display:flex;flex-direction:column;min-height:100vh;}
+    header{padding:1rem 2rem;display:flex;justify-content:center;align-items:center;background:#fafafa;box-shadow:0 2px 4px rgba(0,0,0,.05);} 
+    header h2{font-size:1.5rem;}
+    header a{color:#00b894;text-decoration:none;font-weight:600;}
+    main{flex:1;padding:2rem;display:flex;justify-content:center;align-items:center;}
+    iframe{width:100%;max-width:960px;height:600px;border:0;box-shadow:0 4px 20px rgba(0,0,0,.15);border-radius:.75rem;}
   </style>
 </head>
 <body>
-  <!-- Decorative floating emoji -->
-  <div class="emoji">✨</div>
-  <div class="emoji">🚀</div>
-  <div class="emoji">🌈</div>
-
-  <!-- Navigation -->
   <header>
-    <h1><a href="/">Toby&nbsp;Jolly</a></h1>
-    <nav>
-      <ul>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="timeline.html">Timeline</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <h2><a href="/">&larr; Back to Home</a></h2>
   </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <img src="img/Screenshot%202025-01-20%20173910.png" alt="Toby Jolly headshot">
-    <h2>Building gatherings, neighbourhoods & words that spark joy.</h2>
-    <p>Founder of <strong>Skylark Gatherings</strong>, convener of <strong>Fractal&nbsp;London</strong>, author of the Substack <strong>seeking‑to‑be‑jolly</strong>.</p>
-    <!-- Social links -->
-    <nav class="social" aria-label="social links">
-      <a aria-label="GitHub" href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a>
-      <a aria-label="LinkedIn" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
-      <a aria-label="Twitter" href="https://twitter.com/yourhandle" target="_blank" rel="noopener">Twitter</a>
-    </nav>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="https://skylarkgatherings.com" target="_blank" rel="noopener">Skylark — events that spark serendipity</a></li>
-      <li><a href="#" target="_blank" rel="noopener">Fractal London — local network of neighbourhood builders</a></li>
-      <li><a href="https://seekingtobejolly.substack.com" target="_blank" rel="noopener">seeking‑to‑be‑jolly — notes & essays</a></li>
-    </ul>
-  </section>
-
-  <!-- Contact with Airtable embed -->
-  <section id="contact" class="contact">
-    <h2>Say hi</h2>
-    <iframe class="airtable-embed" src="https://airtable.com/embed/appSxGzjHs7uQ3UXh/pagc5RDnhaxcDrT8O/form" frameborder="0" width="100%" height="533"></iframe>
-  </section>
+  <main>
+    <!-- Google Slides embed placeholder; replace with your own slide deck link -->
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQX_PLACEHOLDER_ID/embed?start=false&loop=false&delayms=3000" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  </main>
 </body>
 </html>
